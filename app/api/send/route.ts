@@ -130,10 +130,10 @@ Ce message a été envoyé via le formulaire de contact de CarLocation.
     `;
 
         const { data, error } = await resend.emails.send({
-            from: "CarLocation <onboarding@resend.dev>", // Utilisez l'email de validation fourni par Resend
+            from: "CarLocation <onboarding@resend.dev>",
             to: [toEmail],
             subject: `Demande de contact: ${subject}`,
-            reply_to: email,
+            replyTo: email,  // ← Corrigé en camelCase
             html: htmlContent,
             text: textContent, // Version texte comme fallback
         });
